@@ -1,0 +1,342 @@
+@import url("./syntax.css");
+
+:root {
+  font-variant-ligatures: none;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* nebula */
+@layer base {
+  :root {
+    --background: 152 9% 98%;
+    /* Soft white with a hint of green */
+    --foreground: 160 10% 10%;
+    /* Dark forest green */
+    --card: 0 0% 100%;
+    /* Pure white for a clean look */
+    --card-foreground: 160 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 10% 10%;
+    --primary: 40 48% 52%;
+    /* Silk gold */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 14% 92%;
+    --secondary-foreground: 30 10% 12%;
+    --muted: 40 10% 92%;
+    --muted-foreground: 30 8% 42%;
+    --accent: 40 48% 52%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 65% 55%;
+    /* Light red for warnings */
+    --destructive-foreground: 0 0% 100%;
+    --border: 160 10% 85%;
+    /* Light grey-green border */
+    --input: 160 10% 85%;
+    --ring: 158 85% 50%;
+    /* Slightly lighter green ring */
+    --radius: 0.5rem;
+    --chart-1: 158 85% 40%;
+    /* Green for primary chart */
+    --chart-2: 160 20% 45%;
+    /* Subdued green for charts */
+    --chart-3: 160 10% 30%;
+    /* Darker forest green */
+    --chart-4: 154 60% 50%;
+    /* Light pastel green */
+    --chart-5: 160 10% 85%;
+    /* Very light green for background */
+  }
+
+  .dark {
+    --background: 160 10% 5%;
+    /* Very dark greenish-grey */
+    --foreground: 0 0% 100%;
+    /* Bright white */
+    --card: 160 10% 8%;
+    /* Slightly lighter dark green */
+    --card-foreground: 0 0% 100%;
+    --popover: 160 10% 8%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 40 52% 58%;
+    /* Silk gold (dark) */
+    --primary-foreground: 0 0% 8%;
+    --secondary: 30 8% 14%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 30 8% 14%;
+    --muted-foreground: 30 8% 72%;
+    --accent: 40 52% 58%;
+    --accent-foreground: 0 0% 8%;
+    --destructive: 0 65% 50%;
+    /* Soft red for alerts */
+    --destructive-foreground: 0 0% 100%;
+    --border: 160 10% 15%;
+    /* Dark green border */
+    --input: 160 10% 15%;
+    --ring: 158 85% 60%;
+    /* Vibrant green ring */
+    --chart-1: 158 85% 50%;
+    /* Main green for charts */
+    --chart-2: 160 20% 45%;
+    /* Subdued green for contrast */
+    --chart-3: 160 10% 30%;
+    /* Deep forest green */
+    --chart-4: 154 60% 50%;
+    /* Light green accent */
+    --chart-5: 160 10% 85%;
+    /* Soft background green */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.prose {
+  margin: 0 !important;
+}
+
+pre {
+  padding: 0 !important;
+  width: inherit !important;
+  overflow-x: auto;
+}
+
+pre>code {
+  display: grid;
+  max-width: inherit !important;
+  padding: 14px 0 !important;
+}
+
+.code-line {
+  padding: 0.75px 12.5px;
+}
+
+.line-number::before {
+  display: inline-block;
+  width: 1rem;
+  margin-right: 22px;
+  margin-left: -2px;
+  color: rgb(110, 110, 110);
+  content: attr(line);
+  font-size: 13.5px;
+  text-align: right;
+}
+
+.highlight-line {
+  @apply dark:bg-neutral-800/90;
+  @apply bg-neutral-200/90;
+}
+
+.rehype-code-title {
+  @apply px-2;
+  @apply -mb-8;
+  @apply w-full;
+  @apply text-sm;
+  @apply pt-1;
+  @apply pb-5;
+  @apply font-normal;
+  @apply tracking-wider;
+  @apply font-medium;
+  font-family: var(--font-code) !important;
+}
+
+.highlight-comp>code {
+  background-color: transparent !important;
+}
+
+/* Landing page */
+.phone-frame {
+  --phone-w: 260px;
+  width: var(--phone-w);
+  max-width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.phone-frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+.phone-frame--sm {
+  --phone-w: 220px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2.5rem;
+  padding: clamp(2.5rem, 7vh, 4rem) 0 3rem;
+  max-width: 40rem;
+  margin-inline: auto;
+  width: 100%;
+}
+
+.hero__title {
+  font-size: clamp(2.25rem, 1.4rem + 3.2vw, 3.5rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  font-weight: 700;
+}
+
+.hero__lead {
+  margin-top: 1.15rem;
+  margin-inline: auto;
+  font-size: 1.125rem;
+  color: hsl(var(--muted-foreground));
+  max-width: 36ch;
+}
+
+.hero__actions {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__media {
+  width: var(--phone-w, 260px);
+  max-width: min(260px, 100%);
+}
+
+.demo-rows {
+  padding: 1rem 0 2rem;
+  max-width: 40rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+}
+
+.demo-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.demo-row__copy h2 {
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.demo-row__copy p {
+  color: hsl(var(--muted-foreground));
+  margin-inline: auto;
+  max-width: 36ch;
+}
+
+.demo-row__media {
+  width: 240px;
+  max-width: 100%;
+}
+
+.demo-row .phone-frame {
+  --phone-w: 240px;
+}
+
+.install {
+  margin: 4rem auto 2rem;
+  padding: 2rem;
+  max-width: 900px;
+  width: 100%;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.install__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.install__text h2 {
+  font-size: 1.35rem;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+.install__text p {
+  color: hsl(var(--muted-foreground));
+  font-size: 0.9375rem;
+}
+
+.install__code {
+  appearance: none;
+  width: 100%;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-family: var(--font-code), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  text-align: left;
+  overflow-x: auto;
+  white-space: nowrap;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.install__code:hover {
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary));
+}
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 0 2rem;
+  max-width: 900px;
+  margin-inline: auto;
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.35rem;
+}
+
+.site-footer__links a {
+  color: hsl(var(--foreground));
+  text-decoration: none;
+}
+
+.site-footer__links a:hover {
+  color: hsl(var(--primary));
+}

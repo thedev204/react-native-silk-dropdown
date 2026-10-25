@@ -1,0 +1,34 @@
+---
+title: Animation
+description: Reanimated presets for popover and sheet motion.
+---
+
+Motion is driven by a shared Reanimated `progress` value (0→1). Pick a preset string or pass a config object.
+
+<DocVideo
+  src="/videos/transitions.mp4"
+  caption="Fade, slide, and scale on popover and sheet"
+/>
+
+## Presets
+
+| Preset | Popover | Sheet |
+| --- | --- | --- |
+| `fade` | Opacity only | Opacity only (sheet stays docked) |
+| `slide` | ~28px vertical travel + light fade | Full-height slide from bottom |
+| `scale` | Grow from ~86% + fade | Slide up + scale from ~88% |
+| `spring` | Same visuals as scale, spring on open | Same visuals as scale, spring on open |
+| `none` | Instant, no motion | Instant, no motion |
+
+Defaults: popover → `scale`, sheet → `slide`.
+
+## Usage
+
+```tsx
+<Dropdown presentation="popover" animation="fade" ... />
+<Dropdown presentation="sheet" animation="scale" ... />
+<Dropdown
+  animation={{ name: 'slide', durationIn: 300, durationOut: 200 }}
+  ...
+/>
+```

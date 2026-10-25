@@ -1,0 +1,44 @@
+---
+title: Installation
+description: Install Silk Dropdown with Reanimated 4 and worklets.
+---
+
+Install the package with Reanimated 4 and worklets.
+
+## npm / yarn
+
+```sh
+npm install react-native-silk-dropdown react-native-reanimated react-native-worklets
+
+yarn add react-native-silk-dropdown react-native-reanimated react-native-worklets
+```
+
+## Expo
+
+```sh
+npx expo install react-native-silk-dropdown react-native-reanimated react-native-worklets
+```
+
+Follow [Reanimated’s getting started guide](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/getting-started/) for Babel setup, then restart Metro.
+
+## Bare React Native
+
+```sh
+npm install react-native-silk-dropdown react-native-reanimated react-native-worklets
+cd ios && pod install
+```
+
+Rebuild the native app after installing peers.
+
+## Optional peer
+
+For accurate safe-area insets (especially on notched devices), install `react-native-safe-area-context` and wrap your tree with `SafeAreaProvider`.
+
+## Requirements
+
+| Package | Version |
+| --- | --- |
+| `react-native` | New Architecture |
+| `react-native-reanimated` | ≥ 4.0.0 |
+| `react-native-worklets` | required with Reanimated 4 |
+| `react-native-safe-area-context` | optional |

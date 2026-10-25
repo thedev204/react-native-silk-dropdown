@@ -1,0 +1,48 @@
+---
+title: Search
+description: Client filters and async onSearch for remote queries.
+---
+
+Enable the search field with `searchable`. Client-side filtering uses the option label by default.
+
+## Client filter
+
+```tsx
+<Dropdown
+  data={countries}
+  value={value}
+  onChange={setValue}
+  searchable
+  searchPlaceholder="Find a country"
+/>
+```
+
+Override matching with `filter`:
+
+```tsx
+<Dropdown
+  searchable
+  filter={(option, query) =>
+    option.label.toLowerCase().includes(query.toLowerCase())
+  }
+  ...
+/>
+```
+
+## Async search
+
+Use `onSearch` for remote queries. Pair with `loading` while the request is in flight, and update `data` when results arrive.
+
+```tsx
+<Dropdown
+  data={results}
+  value={value}
+  onChange={setValue}
+  searchable
+  loading={isFetching}
+  onSearch={async (query) => {
+    const next = await fetchCountries(query);
+    setResults(next);
+  }}
+/>
+```

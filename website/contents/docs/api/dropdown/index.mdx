@@ -1,0 +1,58 @@
+---
+title: Dropdown
+description: Main component props, option shape, and imperative API.
+---
+
+Main component. Props are a discriminated union on `multiple`.
+
+## Import
+
+```tsx
+import { Dropdown } from 'react-native-silk-dropdown';
+import type { DropdownOption, DropdownRef } from 'react-native-silk-dropdown';
+```
+
+## Core props
+
+| Prop | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `data` | `DropdownOption[]` | — | Supports `labelField` / `valueField` |
+| `value` / `onChange` | `T \| null` or `T[]` | — | Discriminated by `multiple` |
+| `presentation` | `'popover' \| 'sheet'` | `popover` | |
+| `animation` | preset or config | scale / slide | See Animation guide |
+| `searchable` | `boolean` | `false` | Optional `onSearch`, `filter` |
+| `multiple` | `boolean` | `false` | Chips in the trigger |
+| `maxSelected` | `number` | — | Multi-select only |
+| `clearable` | `boolean` | `false` | |
+| `closeOnSelect` | `boolean` | varies | true for popover single; false for sheet / multi |
+| `preferredPlacement` | `'top' \| 'bottom'` | `bottom` | Popover only |
+| `sheetMaxHeightRatio` | `number` | — | Sheet max height as window ratio |
+| `styles` | `DropdownStyles` | — | Slot style overrides |
+| `disabled` / `loading` | `boolean` | `false` | |
+| `onOpen` / `onClose` | `() => void` | — | |
+| `ref` | `DropdownRef` | — | `open`, `close`, `clear` |
+
+## Option shape
+
+```ts
+type DropdownOption<T> = {
+  label: string;
+  value: T;
+  disabled?: boolean;
+  icon?: ReactNode;
+  group?: string;
+  [key: string]: unknown;
+};
+```
+
+## Imperative API
+
+```tsx
+const ref = useRef<DropdownRef>(null);
+
+<Dropdown ref={ref} ... />
+
+ref.current?.open();
+ref.current?.close();
+ref.current?.clear();
+```

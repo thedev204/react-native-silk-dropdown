@@ -1,0 +1,49 @@
+---
+title: DropdownProvider
+description: Optional theme context and token presets.
+---
+
+Optional theme context. Wrap your tree once and override tokens for all nested `Dropdown` instances.
+
+## Import
+
+```tsx
+import {
+  DropdownProvider,
+  useDropdownTheme,
+  tokens,
+  darkTokens,
+} from 'react-native-silk-dropdown';
+```
+
+## Usage
+
+```tsx
+<DropdownProvider tokens={darkTokens}>
+  <App />
+</DropdownProvider>
+
+// Partial override
+<DropdownProvider
+  tokens={{
+    colors: { accent: '#C9A45A' },
+    radii: { control: 8 },
+  }}
+>
+  <App />
+</DropdownProvider>
+```
+
+## useDropdownTheme
+
+Returns `{ tokens }` — the merged token set for custom render props that should match Silk chrome.
+
+```tsx
+const { tokens } = useDropdownTheme();
+// tokens.colors, tokens.spacing, tokens.radii, …
+```
+
+## Built-in presets
+
+- `tokens` — default light palette
+- `darkTokens` — dark palette used by the example app

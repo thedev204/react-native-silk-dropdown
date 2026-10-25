@@ -1,0 +1,33 @@
+---
+title: Bottom Sheet
+description: Full-width panel that slides up — same Dropdown API.
+---
+
+Set `presentation="sheet"` for a full-width panel that slides up from the bottom. Same props as popover — only the presenter changes.
+
+<DocVideo src="/videos/sheet_input.mp4" caption="Sheet inside a form card" />
+
+## Example
+
+```tsx
+<Dropdown
+  data={countries}
+  value={sheetCountry}
+  onChange={setSheetCountry}
+  placeholder="Select country"
+  searchable
+  presentation="sheet"
+  closeOnSelect
+  animation="slide"
+/>
+```
+
+## Defaults that differ
+
+- Default animation is `slide` (popover defaults to `scale`)
+- `closeOnSelect` defaults to `false` — pass `closeOnSelect` to dismiss after a tap
+- Cap height with `sheetMaxHeightRatio` (fraction of window height)
+
+## Dismiss
+
+Users can drag the sheet handle to dismiss. Backdrop press and the imperative `ref.close()` also work.

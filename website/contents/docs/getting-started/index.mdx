@@ -1,0 +1,51 @@
+---
+title: Getting Started
+description: Silk Dropdown is a pure-JS select for React Native — popover or sheet, one API.
+---
+
+Silk Dropdown is a pure-JS select for React Native. One component covers anchored popovers and bottom sheets, with shared search, multi-select, theming, and Reanimated motion.
+
+<DocVideo src="/videos/full.mp4" caption="Overview of the example app scenes" />
+
+## What you need
+
+- React Native with the **New Architecture**
+- `react-native-reanimated` 4.x and `react-native-worklets`
+- Optional `react-native-safe-area-context` for accurate insets
+
+See [Installation](/docs/installation) for Expo and bare React Native steps.
+
+## Minimal example
+
+```tsx
+import { useState } from 'react';
+import { Dropdown } from 'react-native-silk-dropdown';
+
+const countries = [
+  { label: 'Canada', value: 'ca' },
+  { label: 'India', value: 'in' },
+  { label: 'Japan', value: 'jp' },
+];
+
+export function CountryField() {
+  const [value, setValue] = useState<string | null>(null);
+
+  return (
+    <Dropdown
+      data={countries}
+      value={value}
+      onChange={setValue}
+      placeholder="Select country"
+      searchable
+      clearable
+      presentation="popover"
+    />
+  );
+}
+```
+
+## Where next
+
+- [Popover guide](/docs/guides/popover) — searchable anchored menus
+- [Sheet guide](/docs/guides/sheet) — bottom presentation
+- [Dropdown API](/docs/api/dropdown) — full prop reference

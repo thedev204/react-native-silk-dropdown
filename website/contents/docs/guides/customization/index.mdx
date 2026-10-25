@@ -1,0 +1,57 @@
+---
+title: Customization
+description: Slot styles, render props, and theme tokens.
+---
+
+Style through slot styles, render props, and theme tokens — without forking the selection logic.
+
+## Slot styles
+
+```tsx
+<Dropdown
+  styles={{
+    trigger: { borderRadius: 12 },
+    content: { backgroundColor: '#111' },
+    itemSelected: { backgroundColor: '#222' },
+  }}
+  ...
+/>
+```
+
+Slots include `trigger`, `triggerText`, `content`, `item`, `itemSelected`, `itemText`, `itemTextSelected`, `backdrop`, `handle`, `searchInput`, `chip`, `chipText`, `empty`, `emptyText`, `header`, and `footer`.
+
+## Render props
+
+```tsx
+<Dropdown
+  data={users}
+  value={user}
+  onChange={setUser}
+  searchable
+  renderItem={({ item, selected, onPress }) => (
+    <Pressable onPress={onPress}>
+      <Text style={selected ? styles.selected : undefined}>
+        {item.label}
+        {item.group ? ` · ${item.group}` : ''}
+      </Text>
+    </Pressable>
+  )}
+/>
+```
+
+Also available: `renderTrigger`, `renderChip`, `renderEmpty`, `renderHeader`, `renderFooter`.
+
+## Theme provider
+
+```tsx
+import {
+  DropdownProvider,
+  darkTokens,
+} from 'react-native-silk-dropdown';
+
+<DropdownProvider tokens={darkTokens}>
+  <App />
+</DropdownProvider>
+```
+
+Pass a partial `tokens` object to override colors, spacing, radii, typography, or elevation. See [DropdownProvider](/docs/api/dropdown-provider).

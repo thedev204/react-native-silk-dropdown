@@ -1,7 +1,7 @@
 {
   "name": "react-native-silk-dropdown",
   "version": "0.1.0",
-  "description": "A smooth, keyboard-safe, fully styleable dropdown for React Native. Popover or bottom sheet, one API.",
+  "description": "A smooth, keyboard-safe, animated dropdown for React Native. Popover or bottom sheet, one API.",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
   "exports": {
@@ -15,17 +15,6 @@
   "files": [
     "src",
     "lib",
-    "android",
-    "ios",
-    "cpp",
-    "*.podspec",
-    "react-native.config.js",
-    "!ios/build",
-    "!android/build",
-    "!android/gradle",
-    "!android/gradlew",
-    "!android/gradlew.bat",
-    "!android/local.properties",
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
@@ -36,10 +25,21 @@
     "clean": "del-cli lib",
     "prepare": "bob build",
     "typecheck": "tsc",
-    "lint": "eslint \"**/*.{js,ts,tsx}\""
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "test": "jest --config jest.config.cjs",
+    "test:watch": "jest --config jest.config.cjs --watch",
+    "docs": "yarn workspace react-native-silk-dropdown-website copy:videos && yarn workspace react-native-silk-dropdown-website dev",
+    "docs:build": "yarn workspace react-native-silk-dropdown-website build"
   },
   "keywords": [
     "react-native",
+    "dropdown",
+    "select",
+    "picker",
+    "bottom-sheet",
+    "multi-select",
+    "reanimated",
+    "animated",
     "ios",
     "android"
   ],
@@ -52,7 +52,7 @@
   "bugs": {
     "url": "https://github.com/thedev204/react-native-silk-dropdown/issues"
   },
-  "homepage": "https://github.com/thedev204/react-native-silk-dropdown#readme",
+  "homepage": "https://react-native-silk-dropdown.vercel.app/",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -62,25 +62,42 @@
     "@eslint/js": "^9.39.5",
     "@react-native/babel-preset": "0.86.2",
     "@react-native/eslint-config": "0.86.2",
+    "@types/jest": "^29.5.14",
     "@types/react": "^19.2.0",
     "del-cli": "^7.0.0",
     "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-ft-flow": "^3.0.11",
     "eslint-plugin-prettier": "^5.5.6",
+    "jest": "^29.7.0",
     "prettier": "^3.9.6",
     "react": "19.2.3",
     "react-native": "0.86.3",
     "react-native-builder-bob": "^0.43.0",
+    "react-native-reanimated": "4.5.1",
+    "react-native-worklets": "0.10.1",
+    "ts-jest": "^29.4.0",
     "turbo": "^2.10.8",
     "typescript": "^6.0.3"
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-reanimated": ">=4.0.0",
+    "react-native-safe-area-context": "*",
+    "react-native-worklets": "*"
+  },
+  "peerDependenciesMeta": {
+    "react-native-safe-area-context": {
+      "optional": true
+    },
+    "react-native-worklets": {
+      "optional": false
+    }
   },
   "workspaces": [
-    "example"
+    "example",
+    "website"
   ],
   "packageManager": "yarn@4.11.0",
   "react-native-builder-bob": {
@@ -112,7 +129,8 @@
     "type": "library",
     "languages": "js",
     "tools": [
-      "eslint"
+      "eslint",
+      "jest"
     ],
     "version": "0.63.1"
   }

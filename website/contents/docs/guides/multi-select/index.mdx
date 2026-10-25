@@ -1,0 +1,31 @@
+---
+title: Multi-select
+description: Array values, chips in the trigger, optional maxSelected.
+---
+
+Pass `multiple` and type `value` / `onChange` as arrays. Selected items render as chips in the trigger by default.
+
+<DocVideo src="/videos/multi_input.mp4" caption="Chips with maxSelected={3}" />
+
+## Example
+
+```tsx
+const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+<Dropdown
+  data={tags}
+  value={selectedTags}
+  onChange={setSelectedTags}
+  multiple
+  maxSelected={3}
+  placeholder="Pick up to 3 tags"
+  clearable
+  presentation="popover"
+/>
+```
+
+## Limits and chips
+
+- `maxSelected` blocks further picks once the cap is reached
+- Customize chip UI with `renderChip`
+- Multi-select defaults `closeOnSelect` to `false` so users can pick several items in one open

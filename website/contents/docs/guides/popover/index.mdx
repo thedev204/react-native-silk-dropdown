@@ -1,0 +1,41 @@
+---
+title: Popover
+description: Anchored floating menu with keyboard-safe layout.
+---
+
+The default presentation anchors a floating menu to the trigger. Layout accounts for window bounds, safe area, and keyboard height.
+
+<DocVideo src="/videos/single_input.mp4" caption="Searchable popover picker" />
+
+## Basic usage
+
+```tsx
+<Dropdown
+  data={countries}
+  value={country}
+  onChange={setCountry}
+  placeholder="Select country"
+  searchable
+  clearable
+  presentation="popover"
+  animation="scale"
+/>
+```
+
+## Placement
+
+Prefer opening below the trigger with `preferredPlacement="bottom"` (default) or `"top"`. Silk flips when there is not enough space.
+
+## closeOnSelect
+
+Popover single-select closes after a choice by default. Keep it open with `closeOnSelect={false}` when you want preview behavior before dismissing.
+
+```tsx
+<Dropdown
+  presentation="popover"
+  closeOnSelect={false}
+  data={countries}
+  value={value}
+  onChange={setValue}
+/>
+```

@@ -1,0 +1,33 @@
+---
+title: useDropdown
+description: Headless hook for selection, open/close phase, and search.
+---
+
+Headless hook for selection, open/close phase, and search state. Most apps should use `Dropdown`; reach for this when building a fully custom shell.
+
+## Import
+
+```tsx
+import { useDropdown } from 'react-native-silk-dropdown';
+```
+
+## Return value
+
+| Field | Notes |
+| --- | --- |
+| `phase` / `mounted` / `open` | Phase machine: closed → opening → open → closing → closed |
+| `query` / `filteredData` / `searchLoading` | Search state |
+| `selected` / `selectedLabel` | Resolved selection |
+| `requestOpen` / `requestClose` | Start open/close transitions |
+| `select` / `clear` / `removeValue` / `isSelected` | Selection helpers |
+
+## Related helpers
+
+```ts
+import {
+  computePopoverLayout,
+  filterOptions,
+  defaultFilter,
+  resolveAnimation,
+} from 'react-native-silk-dropdown';
+```
