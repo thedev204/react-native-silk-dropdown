@@ -17,6 +17,12 @@ Enable the search field with `searchable`. Client-side filtering uses the option
 />
 ```
 
+Option taps default to `keyboardShouldPersistTaps="handled"` so a result can be selected while the keyboard is open. Use `"always"` if the first tap still only dismisses the keyboard:
+
+```tsx
+<Dropdown searchable keyboardShouldPersistTaps="always" ... />
+```
+
 Override matching with `filter`:
 
 ```tsx

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+
+## [0.2.0] - 2026-10-27
+
+### Added
+
+- Added `keyboardShouldPersistTaps` on `Dropdown`, forwarded into the options FlatList.
+
 ## [0.1.0] - 2026-10-25
 
 ### Added

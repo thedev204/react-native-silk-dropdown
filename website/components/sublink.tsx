@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { EachRoute } from "@/lib/routes-config";
-import Anchor from "./anchor";
+import { EachRoute } from '@/lib/routes-config';
+import Anchor from './anchor';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { cn } from "@/lib/utils";
-import { SheetClose } from "@/components/ui/sheet";
-import { Button } from "./ui/button";
-import { ChevronDown, ChevronRight } from "lucide-react";
-import { useState } from "react";
+} from '@/components/ui/collapsible';
+import { cn } from '@/lib/utils';
+import { SheetClose } from '@/components/ui/sheet';
+import { Button } from './ui/button';
+import { ChevronDown, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
 
 export default function SubLink({
   title,
@@ -21,7 +21,7 @@ export default function SubLink({
   level,
   isSheet,
 }: EachRoute & { level: number; isSheet: boolean }) {
-  const [isOpen, setIsOpen] = useState(level == 0);
+  const [isOpen, setIsOpen] = useState(level === 0);
 
   const Comp = (
     <Anchor activeClassName="text-primary font-medium" href={href}>
@@ -66,8 +66,8 @@ export default function SubLink({
         <CollapsibleContent>
           <div
             className={cn(
-              "flex flex-col items-start sm:text-sm dark:text-neutral-300/85 text-neutral-800 ml-0.5 mt-2.5 gap-3",
-              level > 0 && "pl-4 border-l ml-1"
+              'flex flex-col items-start sm:text-sm dark:text-neutral-300/85 text-neutral-800 ml-0.5 mt-2.5 gap-3',
+              level > 0 && 'pl-4 border-l ml-1'
             )}
           >
             {items?.map((innerLink) => {

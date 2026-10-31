@@ -28,33 +28,46 @@
 
 ## Demo
 
+<!--
+  GitHub: plays <video>; keeps `hidden` on <img> so GIFs stay invisible.
+  npm: strips <video> and often drops `hidden`, leaving the GIF visible.
+-->
 <table>
   <tr>
     <td align="center" width="33%">
       <strong>Overview</strong><br/>
-      <video src="./assets/full.mp4" width="220" controls muted loop playsinline></video>
+      <video src="https://github.com/user-attachments/assets/6852f377-1bfc-4d06-97fc-03144a0edff4" width="220" controls muted loop playsinline></video>
+      <img src="./assets/full.gif" width="220" alt="Overview demo" hidden />
     </td>
     <td align="center" width="33%">
       <strong>Searchable popover</strong><br/>
-      <video src="./assets/single_input.mp4" width="220" controls muted loop playsinline></video>
+      <video src="https://github.com/user-attachments/assets/96dba73e-fac2-4bb4-9466-771805abde83" width="220" controls muted loop playsinline></video>
+      <img src="./assets/single_input.gif" width="220" alt="Searchable popover demo" hidden />
     </td>
     <td align="center" width="33%">
       <strong>Multi-select</strong><br/>
-      <video src="./assets/multi_input.mp4" width="220" controls muted loop playsinline></video>
+      <video src="https://github.com/user-attachments/assets/8ea93da0-9dc4-438b-9d9e-2517b51af83a" width="220" controls muted loop playsinline></video>
+      <img src="./assets/multi_input.gif" width="220" alt="Multi-select demo" hidden />
     </td>
   </tr>
   <tr>
     <td align="center" width="33%">
       <strong>Bottom sheet</strong><br/>
-      <video src="./assets/sheet_input.mp4" width="220" controls muted loop playsinline></video>
+      <video src="https://github.com/user-attachments/assets/0b29c91e-fd76-452d-be2e-b2b369607f06" width="220" controls muted loop playsinline></video>
+      <img src="./assets/sheet_input.gif" width="220" alt="Bottom sheet demo" hidden />
     </td>
     <td align="center" width="33%">
       <strong>Motion presets</strong><br/>
-      <video src="./assets/transitions.mp4" width="220" controls muted loop playsinline></video>
+      <video src="https://github.com/user-attachments/assets/c2640860-a09d-4512-9523-f3f17a0afb4f" width="220" controls muted loop playsinline></video>
+      <img src="./assets/transitions.gif" width="220" alt="Motion presets demo" hidden />
     </td>
     <td align="center" width="33%"></td>
   </tr>
 </table>
+
+<p align="center">
+  <a href="https://react-native-silk-dropdown.vercel.app/">Watch full demos on the docs site →</a>
+</p>
 
 ---
 

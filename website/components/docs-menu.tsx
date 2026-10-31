@@ -1,5 +1,5 @@
-import { ROUTES } from "@/lib/routes-config";
-import SubLink from "./sublink";
+import { ROUTES } from '@/lib/routes-config';
+import SubLink from './sublink';
 
 export default function DocsMenu({ isSheet = false }) {
   return (

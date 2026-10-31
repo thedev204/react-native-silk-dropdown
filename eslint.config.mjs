@@ -24,6 +24,16 @@ export default defineConfig([
     },
   },
   {
-    ignores: ['node_modules/', 'lib/'],
+    ignores: [
+      '**/node_modules/**',
+      'lib/**',
+      '**/.next/**',
+      '**/out/**',
+      '**/.expo/**',
+      '**/coverage/**',
+      'website/public/videos/**',
+      'example/android/**',
+      'example/ios/**',
+    ],
   },
 ]);

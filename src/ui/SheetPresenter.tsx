@@ -201,6 +201,28 @@ export function SheetPresenter({
   // Guaranteed off-screen before Reanimated binds (cold Modal first paint).
   const offscreenY = Math.max(sheetMaxHeight, window.height);
 
+  const sheetChromeStyle = useMemo(
+    () => ({
+      maxHeight: sheetMaxHeight,
+      paddingBottom,
+      backgroundColor: tokens.colors.surface,
+      borderTopLeftRadius: tokens.radii.lg,
+      borderTopRightRadius: tokens.radii.lg,
+      transform: [{ translateY: offscreenY }],
+      bottom:
+        keyboardHeight > 0 ? Math.max(0, keyboardHeight - insets.bottom) : 0,
+    }),
+    [
+      insets.bottom,
+      keyboardHeight,
+      offscreenY,
+      paddingBottom,
+      sheetMaxHeight,
+      tokens.colors.surface,
+      tokens.radii.lg,
+    ]
+  );
+
   return (
     <Modal
       visible={visible}
@@ -228,22 +250,7 @@ export function SheetPresenter({
 
         <Animated.View
           onLayout={onSheetLayout}
-          style={[
-            styles.sheet,
-            {
-              maxHeight: sheetMaxHeight,
-              paddingBottom,
-              backgroundColor: tokens.colors.surface,
-              borderTopLeftRadius: tokens.radii.lg,
-              borderTopRightRadius: tokens.radii.lg,
-              transform: [{ translateY: offscreenY }],
-              bottom:
-                keyboardHeight > 0
-                  ? Math.max(0, keyboardHeight - insets.bottom)
-                  : 0,
-            },
-            sheetAnimatedStyle,
-          ]}
+          style={[styles.sheet, sheetChromeStyle, sheetAnimatedStyle]}
         >
           <View
             {...panResponder.panHandlers}

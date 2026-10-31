@@ -33,8 +33,9 @@ export default function Home() {
             One simple API.
           </h1>
           <p className="hero__lead">
-            A smooth, keyboard-safe animated dropdown for React Native. Popover or bottom
-            sheet — built for developers who care about design and ease of use.
+            A smooth, keyboard-safe animated dropdown for React Native. Popover
+            or bottom sheet — built for developers who care about design and
+            ease of use.
           </p>
           <div className="hero__actions">
             <Link

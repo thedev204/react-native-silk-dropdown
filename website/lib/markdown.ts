@@ -1,11 +1,11 @@
-import path from "path";
-import { promises as fs } from "fs";
-import { compileMDX } from "next-mdx-remote/rsc";
-import remarkGfm from "remark-gfm";
-import rehypePrism from "rehype-prism-plus";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeSlug from "rehype-slug";
-import rehypeCodeTitles from "rehype-code-titles";
+import path from 'path';
+import { promises as fs } from 'fs';
+import { compileMDX } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
+import rehypePrism from 'rehype-prism-plus';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
+import rehypeCodeTitles from 'rehype-code-titles';
 
 // custom components imports
 import Note from '@/components/note';
@@ -47,7 +47,7 @@ type BaseMdxFrontmatter = {
 export async function getDocsForSlug(slug: string) {
   try {
     const contentPath = getDocsContentPath(slug);
-    const rawMdx = await fs.readFile(contentPath, "utf-8");
+    const rawMdx = await fs.readFile(contentPath, 'utf-8');
     return await parseMdx<BaseMdxFrontmatter>(rawMdx);
   } catch (err) {
     console.log(err);
@@ -56,7 +56,7 @@ export async function getDocsForSlug(slug: string) {
 
 export async function getDocsTocs(slug: string) {
   const contentPath = getDocsContentPath(slug);
-  const rawMdx = await fs.readFile(contentPath, "utf-8");
+  const rawMdx = await fs.readFile(contentPath, 'utf-8');
   // captures between ## - #### can modify accordingly
   const headingsRegex = /^(#{2,4})\s(.+)$/gm;
   let match;
@@ -64,21 +64,21 @@ export async function getDocsTocs(slug: string) {
   while ((match = headingsRegex.exec(rawMdx)) !== null) {
     const headingLevel = match[1].length;
     const headingText = match[2].trim();
-    const slug = sluggify(headingText);
+    const headingSlug = sluggify(headingText);
     extractedHeadings.push({
       level: headingLevel,
       text: headingText,
-      href: `#${slug}`,
+      href: `#${headingSlug}`,
     });
   }
   return extractedHeadings;
 }
 
 function sluggify(text: string) {
-  const slug = text.toLowerCase().replace(/\s+/g, "-");
-  return slug.replace(/[^a-z0-9-]/g, "");
+  const slug = text.toLowerCase().replace(/\s+/g, '-');
+  return slug.replace(/[^a-z0-9-]/g, '');
 }
 
 function getDocsContentPath(slug: string) {
-  return path.join(process.cwd(), "/contents/docs/", `${slug}/index.mdx`);
+  return path.join(process.cwd(), '/contents/docs/', `${slug}/index.mdx`);
 }

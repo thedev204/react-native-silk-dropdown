@@ -144,6 +144,12 @@ export type DropdownBaseProps<T extends DropdownItemValue> = {
   preferredPlacement?: PopoverPlacement;
   sheetMaxHeightRatio?: number;
   closeOnSelect?: boolean;
+  /**
+   * Passed to the options FlatList. Defaults to `'handled'` so option taps
+   * select while the search keyboard is open (avoids a dismiss-then-select tap).
+   * Use `'always'` if taps still dismiss the keyboard first on your platform.
+   */
+  keyboardShouldPersistTaps?: boolean | 'always' | 'never' | 'handled';
   testID?: string;
   ref?: Ref<DropdownRef>;
 };

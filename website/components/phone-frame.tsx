@@ -12,9 +12,7 @@ export function PhoneFrame({
   controls = false,
 }: Props) {
   return (
-    <div
-      className={`phone-frame${size === 'sm' ? ' phone-frame--sm' : ''}`}
-    >
+    <div className={`phone-frame${size === 'sm' ? ' phone-frame--sm' : ''}`}>
       <video
         src={src.startsWith('/') ? src : `/${src}`}
         autoPlay

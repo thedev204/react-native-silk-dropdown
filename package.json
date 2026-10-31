@@ -1,6 +1,6 @@
 {
   "name": "react-native-silk-dropdown",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A smooth, keyboard-safe, animated dropdown for React Native. Popover or bottom sheet, one API.",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
@@ -123,7 +123,8 @@
     "singleQuote": true,
     "tabWidth": 2,
     "trailingComma": "es5",
-    "useTabs": false
+    "useTabs": false,
+    "endOfLine": "lf"
   },
   "create-react-native-library": {
     "type": "library",

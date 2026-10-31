@@ -40,6 +40,7 @@ type Props<T extends DropdownItemValue> = {
   showDone?: boolean;
   onDone?: () => void;
   onContentSizeChange?: (height: number) => void;
+  keyboardShouldPersistTaps?: boolean | 'always' | 'never' | 'handled';
 };
 
 export function Content<T extends DropdownItemValue>({
@@ -60,6 +61,7 @@ export function Content<T extends DropdownItemValue>({
   showDone,
   onDone,
   onContentSizeChange,
+  keyboardShouldPersistTaps = 'handled',
 }: Props<T>) {
   const { tokens } = useDropdownTheme();
 
@@ -143,7 +145,7 @@ export function Content<T extends DropdownItemValue>({
         data={data}
         keyExtractor={keyExtractor}
         renderItem={renderListItem}
-        keyboardShouldPersistTaps="handled"
+        keyboardShouldPersistTaps={keyboardShouldPersistTaps}
         style={styles.list}
         ListEmptyComponent={
           renderEmpty ? (

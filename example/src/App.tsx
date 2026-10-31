@@ -56,7 +56,8 @@ const scenes: Scene[] = [
     id: 'popover',
     eyebrow: 'Popover',
     title: 'Searchable picker',
-    description: 'Anchored menu with search, clear, and morph-from-trigger motion.',
+    description:
+      'Anchored menu with search, clear, and morph-from-trigger motion.',
   },
   {
     id: 'multi',
@@ -194,7 +195,10 @@ export default function App() {
                     <Pressable
                       key={mode}
                       onPress={() => setMotionMode(mode)}
-                      style={[styles.segmentItem, active && styles.segmentActive]}
+                      style={[
+                        styles.segmentItem,
+                        active && styles.segmentActive,
+                      ]}
                     >
                       <Text
                         style={[

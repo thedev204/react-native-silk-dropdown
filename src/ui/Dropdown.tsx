@@ -58,6 +58,7 @@ function DropdownInner<T extends DropdownItemValue>(
     preferredPlacement,
     sheetMaxHeightRatio,
     closeOnSelect,
+    keyboardShouldPersistTaps,
     testID,
   } = props;
 
@@ -104,10 +105,11 @@ function DropdownInner<T extends DropdownItemValue>(
     [animation, presentation]
   );
 
+  const { handleClosed: completeClose } = dropdown;
   const handleClosed = useCallback(() => {
     setSheetLayoutReady(false);
-    dropdown.handleClosed();
-  }, [dropdown.handleClosed]);
+    completeClose();
+  }, [completeClose]);
 
   const handleSheetReady = useCallback(() => {
     setSheetLayoutReady(true);
@@ -213,16 +215,13 @@ function DropdownInner<T extends DropdownItemValue>(
       }
       showDone={presentation === 'sheet' && Boolean(props.multiple)}
       onDone={dropdown.requestClose}
+      keyboardShouldPersistTaps={keyboardShouldPersistTaps}
     />
   );
 
   return (
     <View>
-      <View
-        ref={triggerRef}
-        collapsable={false}
-        onLayout={onTriggerLayout}
-      >
+      <View ref={triggerRef} collapsable={false} onLayout={onTriggerLayout}>
         {renderTrigger ? (
           renderTrigger({
             open: dropdown.open,

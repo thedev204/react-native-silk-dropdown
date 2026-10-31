@@ -1,7 +1,7 @@
-import { getDocsTocs } from "@/lib/markdown";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import Link from "next/link";
-import clsx from "clsx";
+import { getDocsTocs } from '@/lib/markdown';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import Link from 'next/link';
+import clsx from 'clsx';
 
 export default async function Toc({ path }: { path: string }) {
   const tocs = await getDocsTocs(path);
@@ -17,9 +17,9 @@ export default async function Toc({ path }: { path: string }) {
                 key={href}
                 href={href}
                 className={clsx({
-                  "pl-0": level == 2,
-                  "pl-4": level == 3,
-                  "pl-8 ": level == 4,
+                  'pl-0': level === 2,
+                  'pl-4': level === 3,
+                  'pl-8 ': level === 4,
                 })}
               >
                 {text}
