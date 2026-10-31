@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { PhoneFrame } from '@/components/phone-frame';
 import { CopyInstall } from '@/components/copy-install';
 import { buttonVariants } from '@/components/ui/button';
-import { GITHUB_URL, NPM_URL } from '@/lib/site';
+import { GITHUB_URL, NPM_URL, SNACK_URL } from '@/lib/site';
 
 const demos = [
   {
@@ -44,6 +44,18 @@ export default function Home() {
             >
               Read the docs
             </Link>
+            <a
+              href={SNACK_URL}
+              target="_blank"
+              rel="noreferrer"
+              className={buttonVariants({
+                size: 'lg',
+                variant: 'outline',
+                className: 'px-6',
+              })}
+            >
+              Open Expo Snack
+            </a>
             <Link
               href={GITHUB_URL}
               target="_blank"
@@ -99,6 +111,9 @@ export default function Home() {
         <div>Silk Dropdown · MIT · {new Date().getFullYear()}</div>
         <div className="site-footer__links">
           <Link href="/docs/getting-started">Docs</Link>
+          <a href={SNACK_URL} target="_blank" rel="noreferrer">
+            Expo Snack
+          </a>
           <a href={GITHUB_URL} target="_blank" rel="noreferrer">
             GitHub
           </a>

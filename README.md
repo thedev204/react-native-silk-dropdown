@@ -14,6 +14,9 @@
     <a href="https://github.com/thedev204/react-native-silk-dropdown/blob/main/LICENSE">
       <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="license" />
     </a>
+    <a href="https://snack.expo.dev/@thedev204/silk-dropdown">
+      <img src="https://img.shields.io/badge/Open%20in%20Snack-4630EB?logo=expo&logoColor=white" alt="Open in Expo Snack" />
+    </a>
   </div>
 </p>
 
@@ -28,44 +31,37 @@
 
 ## Demo
 
-<!--
-  GitHub: plays <video>; keeps `hidden` on <img> so GIFs stay invisible.
-  npm: strips <video> and often drops `hidden`, leaving the GIF visible.
--->
 <table>
   <tr>
     <td align="center" width="33%">
       <strong>Overview</strong><br/>
       <video src="https://github.com/user-attachments/assets/6852f377-1bfc-4d06-97fc-03144a0edff4" width="220" controls muted loop playsinline></video>
-      <img src="./assets/full.gif" width="220" alt="Overview demo" hidden />
     </td>
     <td align="center" width="33%">
       <strong>Searchable popover</strong><br/>
       <video src="https://github.com/user-attachments/assets/96dba73e-fac2-4bb4-9466-771805abde83" width="220" controls muted loop playsinline></video>
-      <img src="./assets/single_input.gif" width="220" alt="Searchable popover demo" hidden />
     </td>
     <td align="center" width="33%">
       <strong>Multi-select</strong><br/>
       <video src="https://github.com/user-attachments/assets/8ea93da0-9dc4-438b-9d9e-2517b51af83a" width="220" controls muted loop playsinline></video>
-      <img src="./assets/multi_input.gif" width="220" alt="Multi-select demo" hidden />
     </td>
   </tr>
   <tr>
     <td align="center" width="33%">
       <strong>Bottom sheet</strong><br/>
       <video src="https://github.com/user-attachments/assets/0b29c91e-fd76-452d-be2e-b2b369607f06" width="220" controls muted loop playsinline></video>
-      <img src="./assets/sheet_input.gif" width="220" alt="Bottom sheet demo" hidden />
     </td>
     <td align="center" width="33%">
       <strong>Motion presets</strong><br/>
       <video src="https://github.com/user-attachments/assets/c2640860-a09d-4512-9523-f3f17a0afb4f" width="220" controls muted loop playsinline></video>
-      <img src="./assets/transitions.gif" width="220" alt="Motion presets demo" hidden />
     </td>
     <td align="center" width="33%"></td>
   </tr>
 </table>
 
 <p align="center">
+  <a href="https://snack.expo.dev/@thedev204/silk-dropdown">Try it in Expo Snack →</a>
+  ·
   <a href="https://react-native-silk-dropdown.vercel.app/">Watch full demos on the docs site →</a>
 </p>
 
@@ -117,6 +113,8 @@ import { Dropdown } from 'react-native-silk-dropdown';
 ## Documentation
 
 Full API reference, guides, and examples are available on the **[official documentation website](https://react-native-silk-dropdown.vercel.app/)**.
+
+Try the interactive demo in **[Expo Snack](https://snack.expo.dev/@thedev204/silk-dropdown)**.
 
 - [Getting Started](https://react-native-silk-dropdown.vercel.app/docs/getting-started)
 - [Installation](https://react-native-silk-dropdown.vercel.app/docs/installation)

@@ -5,5 +5,7 @@ export const GITHUB_URL =
   'https://github.com/thedev204/react-native-silk-dropdown';
 export const NPM_URL =
   'https://www.npmjs.com/package/react-native-silk-dropdown';
+export const SNACK_URL =
+  'https://snack.expo.dev/@thedev204/silk-dropdown';
 export const INSTALL_COMMAND =
   'npm i react-native-silk-dropdown react-native-reanimated react-native-worklets';

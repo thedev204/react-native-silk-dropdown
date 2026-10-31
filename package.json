@@ -24,6 +24,8 @@
     "example": "yarn workspace react-native-silk-dropdown-example",
     "clean": "del-cli lib",
     "prepare": "bob build",
+    "prepack": "node ./scripts/npm-readme.mjs prepare",
+    "postpack": "node ./scripts/npm-readme.mjs restore",
     "typecheck": "tsc",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "test": "jest --config jest.config.cjs",

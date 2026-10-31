@@ -3,12 +3,16 @@ import { HexagonIcon } from 'lucide-react';
 import Link from 'next/link';
 import Anchor from './anchor';
 import { SheetLeftbar } from './leftbar';
-import { GITHUB_URL, SITE_NAME } from '@/lib/site';
+import { GITHUB_URL, SITE_NAME, SNACK_URL } from '@/lib/site';
 
 export const NAVLINKS = [
   {
     title: 'Documentation',
     href: '/docs/getting-started',
+  },
+  {
+    title: 'Expo Snack',
+    href: SNACK_URL,
   },
   {
     title: 'GitHub',
